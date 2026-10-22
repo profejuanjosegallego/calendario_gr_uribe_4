@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calendario de los lunes</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='10' width='52' height='48' rx='12' fill='%23FFF8EE' stroke='%2322313F' stroke-width='4'/%3E%3Crect x='6' y='10' width='52' height='16' rx='8' fill='%237DD3B0' stroke='%2322313F' stroke-width='4'/%3E%3Cline x1='20' y1='4' x2='20' y2='16' stroke='%2322313F' stroke-width='5' stroke-linecap='round'/%3E%3Cline x1='44' y1='4' x2='44' y2='16' stroke='%2322313F' stroke-width='5' stroke-linecap='round'/%3E%3Ctext x='32' y='51' font-family='Arial,sans-serif' font-size='24' font-weight='700' text-anchor='middle' fill='%2322313F'%3EL%3C/text%3E%3C/svg%3E">
+<meta name="description" content="Calendario de clases de los lunes, de 6:30 a 9:30 p. m.: una presencial y tres virtuales, del 9 de noviembre al 14 de diciembre de 2026, con festivos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;700;800&display=swap">
+<style>
+:root{--cream:#FFF8EE;--ink:#22313F;--soft:#5D6B78;--card:#FFFFFF;--line:#F0E6D6;--mint:#7DD3B0;--mintd:#2E8B6A;--mintbg:#EEF8F3;--peach:#FFB38A;--peachbg:#FFF0E6;--butter:#FFD86B;--lilac:#B9A6FF;--lilacbg:#F4F0FF;--sky:#8EC9FF;--coral:#FF8A80;--night:#1D2A38;--shadow:0 12px 34px rgba(34,49,63,.10)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--cream:#162029;--ink:#EEF2F5;--soft:#A9B7C4;--card:#1F2C38;--line:#2C3B48;--mintbg:#1D3A33;--peachbg:#3A2A22;--lilacbg:#2A2643;--mintd:#7DD3B0;--shadow:0 12px 34px rgba(0,0,0,.35)}}
+:root[data-theme="dark"]{--cream:#162029;--ink:#EEF2F5;--soft:#A9B7C4;--card:#1F2C38;--line:#2C3B48;--mintbg:#1D3A33;--peachbg:#3A2A22;--lilacbg:#2A2643;--mintd:#7DD3B0;--shadow:0 12px 34px rgba(0,0,0,.35)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.5 Nunito,system-ui,sans-serif;overflow-x:hidden}
+.wrap{max-width:1000px;margin:auto;padding:0 16px}
+h1,h2,h3{font-family:Fredoka,system-ui,sans-serif;line-height:1.1;margin:0}
+header{position:relative;padding:48px 0 24px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;opacity:.45;z-index:0;pointer-events:none}
+header .wrap{position:relative;z-index:1}
+.eyebrow{font:700 13px/1 ui-monospace,Consolas,monospace;letter-spacing:3px;color:var(--mintd)}
+h1{font-size:clamp(36px,7vw,64px);margin:12px 0 8px}
+.sub{color:var(--soft);font-size:19px;max-width:640px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 16px;font-weight:800;font-size:15px;background:var(--card);box-shadow:var(--shadow)}
+.dot{width:12px;height:12px;border-radius:50%}
+.hoy{background:var(--night);color:#FFF8EE;border-radius:32px;padding:28px;margin:8px 0 28px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;box-shadow:var(--shadow)}
+.hoy .eyebrow{color:var(--butter)}
+.hoy h2{font-size:clamp(26px,4.5vw,38px);margin:10px 0 6px}
+.hoy p{margin:0;color:#C9D6E2}
+.cuenta{font-family:Fredoka,sans-serif;font-size:20px;color:var(--mint);margin-top:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:14px 24px;font:800 17px Nunito,sans-serif;text-decoration:none;cursor:pointer;white-space:nowrap}
+.btn.teams{background:#5B5FC7;color:#fff}
+.btn.teams:hover{background:#4a4eb3}
+.btn.claro{background:var(--card);color:var(--ink);box-shadow:var(--shadow)}
+.btn.mapa{background:var(--peach);color:#22313F}
+.acciones{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 16px}
+.enlace{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;background:var(--card);border-radius:22px;padding:14px 18px;box-shadow:var(--shadow);margin:0 0 28px}
+.enlace b{white-space:nowrap}
+.enlace a{color:#5B5FC7;font-weight:700;word-break:break-all;flex:1 1 260px}
+.enlace button{border:0;border-radius:999px;padding:8px 16px;font:800 14px Nunito,sans-serif;background:var(--mintbg);color:var(--mintd);cursor:pointer}
+.lista{display:grid;gap:14px;margin-bottom:40px}
+.ses{display:grid;grid-template-columns:96px 1fr auto;gap:18px;align-items:center;background:var(--card);border-radius:26px;padding:18px 20px;box-shadow:var(--shadow);border-left:10px solid var(--mint)}
+.ses.presencial{border-left-color:var(--peach)}
+.ses.pasada{opacity:.55}
+.ses.festivo{border-left-color:var(--coral);background:repeating-linear-gradient(135deg,var(--card) 0 14px,var(--peachbg) 14px 28px)}
+.ses.festivo .fecha{background:var(--card)}
+.tag.f{background:var(--coral);color:#22313F}
+.ses.proxima{outline:3px solid var(--butter);outline-offset:2px}
+.fecha{text-align:center;border-radius:20px;padding:10px 0;background:var(--mintbg)}
+.ses.presencial .fecha{background:var(--peachbg)}
+.fecha .d{font-family:Fredoka,sans-serif;font-size:38px;font-weight:700;line-height:1}
+.fecha .m{font-weight:800;text-transform:uppercase;font-size:13px;letter-spacing:2px;color:var(--soft)}
+.ses h3{font-size:22px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 6px}
+.tag{font-size:13px;font-weight:800;border-radius:999px;padding:4px 12px;background:var(--lilacbg)}
+.tag.v{background:var(--mintbg);color:var(--mintd)}
+.tag.p{background:var(--peachbg);color:#B4552F}
+.tag.hoyt{background:var(--butter);color:#22313F}
+.ses p{margin:0;color:var(--soft);font-size:16px}
+.ses .btn{padding:10px 18px;font-size:15px}
+.leyenda{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:28px}
+.box{background:var(--card);border-radius:26px;padding:20px;box-shadow:var(--shadow)}
+.box h3{font-size:20px;margin-bottom:6px}
+.box p{margin:0;color:var(--soft)}
+footer{color:var(--soft);font-size:14px;padding:10px 0 40px;text-align:center}
+.tema{position:absolute;top:16px;right:16px;z-index:2}
+.tema button{border:0;background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:700 14px Nunito,sans-serif;box-shadow:var(--shadow);cursor:pointer}
+@media (max-width:640px){
+  .hoy{grid-template-columns:1fr}
+  .ses{grid-template-columns:72px 1fr;gap:14px}
+  .ses .accion{grid-column:1/-1}
+  .ses .accion .btn{width:100%}
+  .fecha .d{font-size:30px}
+  .btn{white-space:normal}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="blob" style="width:320px;height:320px;background:var(--mint);left:-110px;top:-120px"></div>
+  <div class="blob" style="width:220px;height:220px;background:var(--lilac);right:-60px;top:40px"></div>
+  <div class="tema"><button id="btnTema" type="button">🌗 Tema</button></div>
+  <div class="wrap">
+    <div class="eyebrow">CESDE · GRUPO DE LOS LUNES 🗓️</div>
+    <h1>Calendario de los lunes</h1>
+    <p class="sub">Todos los lunes de <b>6:30 a 9:30 p. m.</b> (hora de Colombia). Ciclo: <b>una presencial y tres virtuales</b>. El lunes 16 de noviembre es festivo: no hay clase.</p>
+    <div class="chips">
+      <span class="chip"><span class="dot" style="background:var(--peach)"></span>Presencial · Aula por confirmar</span>
+      <span class="chip"><span class="dot" style="background:var(--mint)"></span>Virtual por Teams</span>
+      <span class="chip"><span class="dot" style="background:var(--coral)"></span>Festivo · sin clase</span>
+      <span class="chip">🗓️ 9 nov → 14 dic 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hoy" id="destacada" aria-live="polite"></section>
+
+  <div class="acciones">
+    <a class="btn teams" id="teamsGeneral" target="_blank" rel="noopener">💻 Enlace de Teams de las clases virtuales</a>
+    <button class="btn claro" id="btnIcs" type="button">📅 Agregar todas las clases a mi calendario</button>
+  </div>
+  <div class="enlace">
+    <b>🔗 Enlace de Teams:</b>
+    <a id="teamsTexto" target="_blank" rel="noopener"></a>
+    <button id="btnCopiar" type="button">Copiar enlace</button>
+  </div>
+
+  <div class="leyenda">
+    <div class="box"><h3>💻 Clases virtuales</h3><p>Entra 5 minutos antes con el mismo enlace de Teams de siempre. Cámara y micrófono listos para el daily.</p></div>
+    <div class="box"><h3>🏫 Clases presenciales</h3><p>Aula por confirmar (te avisamos aquí). Trae tu computador con el proyecto instalado: son días de review, retro y trabajo en squad.</p></div>
+    <div class="box"><h3>🔁 Ciclo 1 + 3</h3><p>Una clase presencial y luego tres virtuales. La clase 1 ya la tuvimos: aquí siguen de la 2 a la 6.</p></div>
+  </div>
+
+  <h2 style="font-size:30px;margin:0 0 16px">Todas las clases</h2>
+  <section class="lista" id="lista"></section>
+</main>
+
+<footer>Las fechas pueden ajustarse: revisa esta página antes de cada clase.</footer>
+
+<script>
+const TEAMS = "https://teams.microsoft.com/meet/245602414527165?p=pqK8mGdjDyiaPpbaLK";
+const AULA = "Aula por confirmar";
+const HORA_INI = "18:30", HORA_FIN = "21:30"; // hora de Colombia (UTC-5)
+
+// Ciclo: 1 presencial + 3 virtuales. modo "festivo" = día sin clase (no cuenta); "nota" = aviso extra.
+// La clase 1 ya pasó, por eso la numeración arranca en 2. Edita aquí si cambia algo.
+const CLASES_ANTES = 1;
+const CALENDARIO = [
+  { fecha: "2026-11-09", modo: "virtual",    titulo: "Clase virtual", detalle: "Repasamos la clase 1 y organizamos los equipos por Teams." },
+  { fecha: "2026-11-16", modo: "festivo",    titulo: "Festivo: Independencia de Cartagena", detalle: "No hay clase. Nos vemos el lunes 23 por Teams." },
+  { fecha: "2026-11-23", modo: "virtual",    titulo: "Clase virtual", detalle: "Avance guiado, dudas y trabajo por equipos en Teams." },
+  { fecha: "2026-11-30", modo: "presencial", titulo: "Encuentro presencial", detalle: "Nos vemos cara a cara: revisamos avances y trabajamos juntos en el aula." },
+  { fecha: "2026-12-07", modo: "virtual",    titulo: "Clase virtual", detalle: "Últimos ajustes y preparación del cierre." },
+  { fecha: "2026-12-14", modo: "virtual",    titulo: "🎉 Clase de cierre", detalle: "Mostramos lo que hicimos y cerramos el ciclo." },
+];
+let n = CLASES_ANTES;
+CALENDARIO.forEach(s => { if (s.modo !== "festivo") s.num = ++n; });
+const SESIONES = CALENDARIO.filter(s => s.modo !== "festivo");
+const TOTAL = n;
+
+const MESES = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const DIAS = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+const inicio = s => new Date(`${s.fecha}T${HORA_INI}:00-05:00`);
+const fin = s => new Date(`${s.fecha}T${HORA_FIN}:00-05:00`);
+const fechaLarga = s => { const d = new Date(`${s.fecha}T12:00:00-05:00`); return `${DIAS[d.getUTCDay()]} ${d.getUTCDate()} de ${["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"][d.getUTCMonth()]}`; };
+const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+document.getElementById("teamsGeneral").href = TEAMS;
+const teamsTexto = document.getElementById("teamsTexto");
+teamsTexto.href = TEAMS; teamsTexto.textContent = TEAMS;
+document.getElementById("btnCopiar").addEventListener("click", async e => {
+  try { await navigator.clipboard.writeText(TEAMS); e.target.textContent = "¡Copiado! ✅"; }
+  catch (err) { e.target.textContent = "Cópialo a mano 👆"; }
+  setTimeout(() => e.target.textContent = "Copiar enlace", 2000);
+});
+
+function lugar(s) {
+  return s.modo === "virtual"
+    ? `<span class="tag v">💻 Virtual · Teams</span>`
+    : `<span class="tag p">🏫 Presencial · ${AULA}</span>`;
+}
+function accion(s) {
+  return s.modo === "virtual"
+    ? `<a class="btn teams" href="${TEAMS}" target="_blank" rel="noopener">Unirme por Teams</a>`
+    : `<span class="btn mapa">📍 ${AULA}</span>`;
+}
+
+function pintar() {
+  const ahora = new Date();
+  const actual = SESIONES.find(s => ahora >= inicio(s) && ahora <= fin(s));
+  const proxima = actual || SESIONES.find(s => fin(s) > ahora);
+  const hoyStr = new Date(ahora.getTime() - 5 * 3600e3).toISOString().slice(0, 10);
+
+  document.getElementById("lista").innerHTML = CALENDARIO.map(s => {
+    const d = new Date(`${s.fecha}T12:00:00-05:00`);
+    const clases = ["ses", s.modo, fin(s) < ahora ? "pasada" : "", s === proxima ? "proxima" : ""].join(" ");
+    const hoy = s.fecha === hoyStr ? `<span class="tag hoyt">⭐ HOY</span>` : "";
+    const fecha = `<div class="fecha"><div class="d">${d.getUTCDate()}</div><div class="m">${MESES[d.getUTCMonth()]}</div></div>`;
+    if (s.modo === "festivo") return `<article class="${clases}">${fecha}
+      <div><h3>🚫 ${esc(s.titulo)}</h3>
+        <div class="meta">${hoy}<span class="tag f">Lunes festivo · sin clase</span></div>
+        <p>${esc(s.detalle)}</p></div>
+    </article>`;
+    return `<article class="${clases}">${fecha}
+      <div><h3>Clase ${s.num} · ${esc(s.titulo)}</h3>
+        <div class="meta">${hoy}${s.nota ? `<span class="tag f">🚩 ${esc(s.nota)}</span>` : ""}${lugar(s)}<span class="tag">🕡 6:30–9:30 p. m.</span><span class="tag">Clase ${s.num} de ${TOTAL}</span></div>
+        <p>${esc(s.detalle)}</p></div>
+      <div class="accion">${accion(s)}</div>
+    </article>`;
+  }).join("");
+
+  const box = document.getElementById("destacada");
+  if (!proxima) {
+    box.innerHTML = `<div><div class="eyebrow">CICLO TERMINADO</div><h2>¡Gracias por todo, equipo! 💚</h2><p>Todas las clases ya pasaron.</p></div>`;
+    return;
+  }
+  const ms = inicio(proxima) - ahora;
+  let cuenta;
+  if (actual) cuenta = "🔴 ¡La clase está en curso ahora mismo!";
+  else if (proxima.fecha === hoyStr) {
+    const h = Math.floor(ms / 3600e3), m = Math.floor(ms % 3600e3 / 60e3);
+    cuenta = `⏱️ Empieza hoy en ${h > 0 ? h + " h " : ""}${m} min`;
+  } else cuenta = `⏳ Faltan ${Math.ceil(ms / 86400e3)} días`;
+  const etiqueta = proxima.fecha === hoyStr ? "HOY" : "PRÓXIMA CLASE";
+  box.innerHTML = `<div>
+      <div class="eyebrow">${etiqueta} · ${proxima.modo === "virtual" ? "VIRTUAL" : "PRESENCIAL"}</div>
+      <h2>Clase ${proxima.num} · ${esc(proxima.titulo)}</h2>
+      <p>${fechaLarga(proxima)} · 6:30 a 9:30 p. m. · ${proxima.modo === "virtual" ? "por Teams" : AULA}</p>
+      <div class="cuenta">${cuenta}</div>
+    </div>
+    <div>${proxima.modo === "virtual"
+      ? `<a class="btn teams" href="${TEAMS}" target="_blank" rel="noopener">💻 Unirme por Teams</a>`
+      : `<span class="btn mapa">📍 ${AULA}</span>`}</div>`;
+}
+pintar();
+setInterval(pintar, 30000);
+
+// Archivo .ics con todas las sesiones (Google Calendar, Outlook, iPhone)
+document.getElementById("btnIcs").addEventListener("click", () => {
+  const f = d => d.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const linea = t => t.replace(/[,;\\]/g, m => "\\" + m).replace(/\n/g, "\\n");
+  const eventos = SESIONES.map((s, i) => [
+    "BEGIN:VEVENT",
+    `UID:lunes-${s.fecha}@cesde`,
+    `DTSTAMP:${f(new Date())}`,
+    `DTSTART:${f(inicio(s))}`,
+    `DTEND:${f(fin(s))}`,
+    `SUMMARY:${linea(`Clase ${s.num} · ${s.titulo} (${s.modo === "virtual" ? "virtual" : AULA})`)}`,
+    `LOCATION:${linea(s.modo === "virtual" ? "Microsoft Teams" : AULA)}`,
+    `DESCRIPTION:${linea(`${s.detalle}\n${s.modo === "virtual" ? "Enlace: " + TEAMS : "Presencial en el " + AULA}`)}`,
+    ...(s.modo === "virtual" ? [`URL:${TEAMS}`] : []),
+    "BEGIN:VALARM", "TRIGGER:-PT30M", "ACTION:DISPLAY", "DESCRIPTION:Clase en 30 minutos", "END:VALARM",
+    "END:VEVENT"].join("\r\n"));
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//CESDE//Lunes//ES", "CALSCALE:GREGORIAN",
+    "X-WR-CALNAME:Clases de los lunes", ...eventos, "END:VCALENDAR"].join("\r\n");
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar;charset=utf-8" }));
+  a.download = "clases_lunes.ics";
+  document.body.appendChild(a); a.click(); a.remove();
+});
+
+// Tema claro / oscuro (se recuerda en este navegador)
+const raiz = document.documentElement;
+try { const t = localStorage.getItem("tema"); if (t) raiz.dataset.theme = t; } catch (e) {}
+document.getElementById("btnTema").addEventListener("click", () => {
+  const oscuro = raiz.dataset.theme ? raiz.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  raiz.dataset.theme = oscuro ? "light" : "dark";
+  try { localStorage.setItem("tema", raiz.dataset.theme); } catch (e) {}
+});
+</script>
+</body>
+</html>
